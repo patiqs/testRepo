@@ -1,2 +1,2 @@
 # testRepo
-My firs repository for study GIT
+My first repository for study GIT
