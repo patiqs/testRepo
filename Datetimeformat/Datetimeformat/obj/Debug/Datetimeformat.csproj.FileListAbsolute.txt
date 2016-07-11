@@ -1,0 +1,6 @@
+D:\GitTutorial For Beginners\testRepo\Datetimeformat\Datetimeformat\bin\Debug\Datetimeformat.exe.config
+D:\GitTutorial For Beginners\testRepo\Datetimeformat\Datetimeformat\bin\Debug\Datetimeformat.exe
+D:\GitTutorial For Beginners\testRepo\Datetimeformat\Datetimeformat\bin\Debug\Datetimeformat.pdb
+D:\GitTutorial For Beginners\testRepo\Datetimeformat\Datetimeformat\obj\Debug\Datetimeformat.csprojResolveAssemblyReference.cache
+D:\GitTutorial For Beginners\testRepo\Datetimeformat\Datetimeformat\obj\Debug\Datetimeformat.exe
+D:\GitTutorial For Beginners\testRepo\Datetimeformat\Datetimeformat\obj\Debug\Datetimeformat.pdb
