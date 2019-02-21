@@ -6,7 +6,17 @@
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	char c = 1;
+	int i = 1000;
+
+	printf("c:%d i:%d\r\n", c, i);
+
+	i = c; //implicit conversion
+	printf("c:%d i:%d\r\n", c, i);
+
+	i = 1000;
+	c = (char)i; //explicit conversion
+	printf("c:%d i:%d\r\n", c, i);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
