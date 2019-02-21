@@ -1,0 +1,18 @@
+gcc - GNU C Compiler
+  - előfordító program
+  - fordítóprogram
+  - szerkesztő/linker program
+
+előfordítás a gcc-vel:
+  gcc -E hello.c
+  gcc -E hello.c -o hello_precompiled.c
+fordítás a gcc-vel:
+  gcc -c hello_precompiled.c
+  gcc -c hello_precompiled.c -o hello.o (ha nevet akarunk megadni)
+szerkesztés/linkelés a gcc-vel:
+  gcc hello_precompiled.o
+  gcc hello.o
+  gcc hello.o -o hello (ha nevet akarunk megadni)
+futtatás Linux op.rendszer alatt:
+  ./a.out
+  ./hello
