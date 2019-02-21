@@ -6,17 +6,23 @@
 
 int main()
 {
-	char c = 1;
+	char c = -1;
 	int i = 1000;
 
-	printf("c:%d i:%d\r\n", c, i);
+	char c2;
+	c2 = c * i;
+	printf("c:%d i:%d c2:%d\r\n", c, i, c2);
+	c2 = i * c;
+	printf("c:%d i:%d c2:%d\r\n", c, i, c2);
 
-	i = c; //implicit conversion
-	printf("c:%d i:%d\r\n", c, i);
+	unsigned char uc = 3;
+	c2 =  c * uc;
+	printf("c:%d i:%d c2:%d\r\n", c, i,c2);
 
-	i = 1000;
-	c = (char)i; //explicit conversion
-	printf("c:%d i:%d\r\n", c, i);
+	c2 = (unsigned char)(c * uc);
+	printf("c:%d i:%d c2:%d\r\n", c, i, c2);
+
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
