@@ -10,7 +10,7 @@ int main()
 	_ASSERT_EXPR(lkkt(15, 5) == 15, "15, 5");
 	_ASSERT_EXPR(lkkt(20, 20) == 20, "20 20");
 	_ASSERT_EXPR(lkkt(0, 0) == 0, "0 0");
-	//_ASSERT_EXPR(lkkt(1, 1) == 1, "1 1");
+	_ASSERT_EXPR(lkkt(1, 1) == 1, "1 1");
 
 
 	return EXIT_SUCCESS;
