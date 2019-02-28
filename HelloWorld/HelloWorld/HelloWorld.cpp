@@ -6,41 +6,28 @@ int lkkt(int x, int y);
 
 int main()
 {
-	int a, b;
-	int eredmeny;
-
-	scanf_s("%d %d", &a, &b);
-
-	eredmeny = lnko(a, b);
-	printf("%d\n", eredmeny);
-
-	eredmeny = lkkt(a, b);
-	printf("%d\n", eredmeny);
-
+	_ASSERT_EXPR(lkkt(5, 15) == 15, "5, 15");
+	_ASSERT_EXPR(lkkt(15, 5) == 15, "15, 5");
+	_ASSERT_EXPR(lkkt(20, 20) == 20, "20 20");
+	_ASSERT_EXPR(lkkt(0, 0) == 0, "0 0");
+	//_ASSERT_EXPR(lkkt(1, 1) == 1, "1 1");
 
 	return EXIT_SUCCESS;
 }
 
-int lnko(int x, int y)
-{
-	while (x != y)
-	{
-		if (x > y)
-			x -= y;
-		else
-			y -= x;
-	}
-
-	return x;
-}
 
 int lkkt(int x, int y)
 {
-	int kt=0;
+	int kt=1;
 
 	while (kt<10000)
 	{
-		kt++;
+		if (x == 0 | y == 0) return 0;
+
+		if (kt%x == 0 && kt%y == 0)
+			break;
+		else
+			kt++;
 	}
 
 	return kt;
