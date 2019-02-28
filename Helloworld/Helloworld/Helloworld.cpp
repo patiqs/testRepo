@@ -34,7 +34,11 @@ int lnko(int x, int y)
 	return x;
 }
 
-int lkkt(int x, int y) {
+int lkkt(int x, int y)
+{
+	int kt;
 
-	return 0;
+	kt = x * y;
+
+	return kt;
 }
