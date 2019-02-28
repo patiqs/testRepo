@@ -37,8 +37,11 @@ int lnko(int x, int y)
 int lkkt(int x, int y)
 {
 	int kt;
-
-	kt = x * y;
+	
+	for (kt = 1; kt < 10000000; ++kt) {
+		if (kt % x == 0 && kt % y == 0) 
+			return kt;
+	}
 
 	return kt;
 }
