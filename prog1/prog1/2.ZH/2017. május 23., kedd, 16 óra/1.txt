@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int foo(char *file_name)
+{
+  FILE *f = fopen(file_name,"r");
+
+  int i,db=0,talalat=0;
+  char karakter;
+
+  while(karakter=fgetc(f))
+  {
+    if(karakter==EOF) break; // elértük a file végét
+
+    if(karakter!=' ') talalat=0;
+    if(karakter==' ')
+      {
+        if(talalat==0)          //nem volt eddig szóköz karakter
+          {
+            talalat = 1;        //találtunk szóköz karaktert
+            continue;           //jöhet a következõ karakter
+          }
+        if(talalat==1)
+          db++;                 //volt már szóköz karakterünk, ez fölösleges
+      }
+
+  }
+
+  fclose(f);
+  return db;
+}
+
+int main()
+{
+  printf("%d\n", foo("sample.txt"));
+  return EXIT_SUCCESS;
+}

@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct VM{
+ char nev[41];
+ int evf;
+ char szak[16];
+}ELEM;
+
+int main(int argc, char *argv[])
+{
+  FILE *f1,*f2;
+  char sor[300], *token;
+
+  f1=fopen(argv[1],"r");
+  f2=fopen(argv[2],"r");
+
+  int f1_sorok_szama=0,f2_sorok_szama=0;
+
+  while(fgets(sor,300,f1))
+    f1_sorok_szama++;
+
+  while(fgets(sor,300,f2))
+    f2_sorok_szama++;
+
+  ELEM t1[f1_sorok_szama],t2[f2_sorok_szama];
+  int index1=0,index2=0;
+
+  rewind(f1);
+  rewind(f2);
+
+  while(fgets(sor,300,f1))
+  {
+    token=strtok(sor,";");
+    strcpy(t1[index1].nev,token);
+
+    token=strtok(NULL,";");
+    t1[index1].evf=atoi(token);
+
+    token=strtok(NULL,"\n");
+    strcpy(t1[index1].szak,token);
+
+    index1++;
+  }
+
+   while(fgets(sor,300,f2))
+  {
+
+    token=strtok(sor,";");
+    strcpy(t2[index2].nev,token);
+
+    token=strtok(NULL,";");
+    t2[index2].evf=atoi(token);
+
+    token=strtok(NULL,"\n");
+    strcpy(t2[index2].szak,token);
+
+    index2++;
+  }
+
+  printf("%d %d\n",index1,index2);
+
+  int volt=0,i,j;
+
+  for(i=0;i<index1;i++)
+   {
+     volt=0;
+
+     for(j=0;j<index2;j++)
+         if( (strcmp(t1[i].nev,t2[j].nev)==0)  && t1[i].evf==t2[j].evf   && (strcmp(t1[i].szak,t2[j].szak)==0 ) )
+                volt=1;
+
+    if(volt==0)
+        printf("%s;%d;%s\n",t1[i].nev,t1[i].evf,t1[i].szak);
+   }
+
+  fclose(f1);
+  fclose(f2);
+  return 0;
+}

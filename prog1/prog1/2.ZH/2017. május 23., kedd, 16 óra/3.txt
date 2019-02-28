@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct VM{
+  char szo[31];
+}ELEM;
+
+int main()
+{
+  int N;
+  char sor[62],*token;
+
+  gets(sor);
+  N=atoi(sor);
+
+  ELEM magyar[N];
+  ELEM angol[N];
+  int magyar_index =0, angol_index =0;
+
+  int volt=0,i;
+
+  while(gets(sor))
+  {
+    token=strtok(sor,":");
+    volt=0;
+
+    for(i=0;i<angol_index;i++)
+      if(strcmp(angol[i].szo,token)==0)
+        volt=1;
+
+    if(volt==0)
+      {
+        strcpy(angol[angol_index].szo,token);
+        angol_index++;
+      }
+
+
+
+    token=strtok(NULL,":");
+    volt=0;
+
+    for(i=0;i<magyar_index;i++)
+      if(strcmp(magyar[i].szo,token)==0)
+        volt=1;
+
+    if(volt==0)
+      {
+        strcpy(magyar[magyar_index].szo,token);
+        magyar_index++;
+      }
+  }
+
+  printf("%d\n",angol_index);
+  printf("%d\n",magyar_index);
+  return 0;
+}

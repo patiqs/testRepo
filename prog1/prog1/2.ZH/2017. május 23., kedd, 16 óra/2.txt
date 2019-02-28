@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct VM{
+  char *file_neve;
+  double file_merete;
+}ELEM;
+
+int rendez(const void *a, const void *b)
+{
+   ELEM *x = (ELEM*)a;
+   ELEM *y = (ELEM*)b;
+
+  if(x->file_merete > y->file_merete) return -1;
+  if(x->file_merete < y->file_merete) return 1;
+
+ return strcmp(x->file_neve,y->file_neve);
+}
+
+int main(int argc, char *argv[])
+{
+  ELEM tomb[argc-1];
+  int i;
+  char karakter;
+  FILE *f;
+
+  for(i=1;i<argc;i++)
+   {
+    tomb[i-1].file_neve=argv[i];
+
+    tomb[i-1].file_merete=0;
+
+    f=fopen(argv[i],"r");
+
+    while(karakter=fgetc(f))
+        {
+          if(karakter==EOF) break;
+
+          tomb[i-1].file_merete+=sizeof(karakter);
+         }
+     tomb[i-1].file_merete/=8;
+
+    fclose(f);
+   }
+
+  qsort(tomb,argc-1,sizeof(ELEM),rendez);
+
+  for(i=0;i<argc-1;i++)
+        printf("%s\n",tomb[i].file_neve);
+
+  return 0;
+}
