@@ -2,54 +2,56 @@
 #include "pch.h"
 #include <iostream>
 
-void foo(char *, const char *);
+bool isPoker(const char * souce);
 
 int main()
 {
-	char source[100], destination[100];
-	destination[99] = 0;
-	//const char src[] = "ABCDEF";
-	//printf("%s\n", src);
-
-	//const char * p = src; // Equivalent to &src[0]; (implicit conversion)
-	////const char* p =  &src[1]; 
-
-	//for (int i = 0; i<strlen(src); ++i) {
-	//	printf("array: %c\n", src[i]);
-	//	const char* q = p + i;
-	//	printf("ptr  : %c\n", *q);
-	//	printf("imptr: %c\n", p[i]); //pointer to a memory offset by i
-	//	++p;
-	//}
-
-	foo(destination, "A1B2C3");
-	foo(&destination[0], "ABC123");
-	//foo(destination, src);
-//	foo(destination, &src[0]);
-	foo(destination, "A1B2C3dfds9999999999");
-
-	printf("%s\n", destination);
-
-	int a = 1;
-	int b = 0;
-	for (int i = 0; b<100; ++a) {
-		b = a * 2;
-	}
+	printf("%c\n",	isPoker("HT HJ HQ HK HA"));
+	printf("%c\n",	isPoker("C4 C5 C6 C7 C8"));
+	printf("%c\n",	isPoker("SK HK CK DK S3"));
+	printf("%c\n",	isPoker("HT ST DT SA CA"));
+	printf("%c\n",	isPoker("C8 S8 S7 D8 H8"));
+	printf("%c\n",	isPoker("HJ DJ SJ D4 CJ"));
 
 	return EXIT_SUCCESS;
 }
 
-void foo(char * destination, const char * souce)
+bool isPoker(const char * souce)
 {
-	int len = lenOfStr(souce);
-	for (int i = 0; i<len ; ++i) 
+	char first = souce[1];
+	char second = souce[4];
+	char third = souce[7];
+	char fourth = souce[10];
+	char fifth = souce[13];
+
+	if (first != second && first != third && second != third) return false;
+	if (first != second && first != fourth && second != fourth) return false;
+	if (first != second && first != fifth && second != fifth) return false;
+	if (first == second && second != third && fourth != first && fourth != third) return false;
+	/*
+	.
+	.
+	.
+	20 cases
+	*/
+
+	char pageKindOne = 0;
+	char pagekindTwo = 0;
+
+	pageKindOne = pagekindTwo = first;
+	if (pageKindOne != second) pagekindTwo = second;
+	//if (!(third == pageKindOne || third == pagekindTwo)) return false;
+	if (third != pageKindOne && third != pagekindTwo) return false;
+	if (fourth == pageKindOne) return false;
+
+	for (int i = 1; i<5 ; ++i) 
 	{
-		printf("%c\n", souce[i]);
-		printf("%c\n", *(souce + i));
-		*destination = 'a';
+		printf("%c\n", souce[i*3+1]);
 	}
+	return false;
 }
 
-int lenOfStr(const char* str) {
+bool isNotPoker(const char * souce)
+{
 	
 }
