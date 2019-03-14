@@ -2,41 +2,54 @@
 #include "pch.h"
 #include <iostream>
 
-int lnko(int x, int y);
-int lkkt(int x, int y);
+void foo(char *, const char *);
 
 int main()
 {
-	_ASSERT_EXPR(lkkt(5, 15) == 15, L"5, 15");
-	_ASSERT_EXPR(lkkt(15, 5) == 15, L"15, 5");
-	_ASSERT_EXPR(lkkt(20, 20) == 20, L"20 20");
-	_ASSERT_EXPR(lkkt(0, 0) == 0, L"0 0");
-	_ASSERT_EXPR(lkkt(1, 1) == 1, L"1 1");
-	_ASSERT_EXPR(lkkt(3, 7) == 21, L"3 7");
-	_ASSERT_EXPR(lkkt(-5, -15) == -15, L"-5 -15");
+	char source[100], destination[100];
+	destination[99] = 0;
+	//const char src[] = "ABCDEF";
+	//printf("%s\n", src);
+
+	//const char * p = src; // Equivalent to &src[0]; (implicit conversion)
+	////const char* p =  &src[1]; 
+
+	//for (int i = 0; i<strlen(src); ++i) {
+	//	printf("array: %c\n", src[i]);
+	//	const char* q = p + i;
+	//	printf("ptr  : %c\n", *q);
+	//	printf("imptr: %c\n", p[i]); //pointer to a memory offset by i
+	//	++p;
+	//}
+
+	foo(destination, "A1B2C3");
+	foo(&destination[0], "ABC123");
+	//foo(destination, src);
+//	foo(destination, &src[0]);
+	foo(destination, "A1B2C3dfds9999999999");
+
+	printf("%s\n", destination);
+
+	int a = 1;
+	int b = 0;
+	for (int i = 0; b<100; ++a) {
+		b = a * 2;
+	}
 
 	return EXIT_SUCCESS;
 }
 
-int lkkt(int x, int y)
+void foo(char * destination, const char * souce)
 {
-	int kt;
+	int len = lenOfStr(souce);
+	for (int i = 0; i<len ; ++i) 
+	{
+		printf("%c\n", souce[i]);
+		printf("%c\n", *(souce + i));
+		*destination = 'a';
+	}
+}
+
+int lenOfStr(const char* str) {
 	
-	if (x == 0 || y == 0) return 0;
-
-	if (x > 0 && y > 0) {
-		for (kt = 1; kt < 10000000; ++kt) {
-			if (kt % x == 0 && kt % y == 0)
-				return kt;
-		}
-	}
-
-	if (x < 0 && y < 0) {
-		for (kt = -1; kt > -10000000; --kt) {
-			if (kt % x == 0 && kt % y == 0)
-				return kt;
-		}
-	}
-
-	return kt;
 }
