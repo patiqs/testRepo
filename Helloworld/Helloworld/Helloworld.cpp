@@ -14,6 +14,7 @@ int main()
 			source[strlen(source) - 1] = '\0';
 		foo(destination, source);
 		printf("%s\n", destination);
+		if (source[0] == 'x') break;
 	}
 
 	return EXIT_SUCCESS;
@@ -21,13 +22,14 @@ int main()
 
 void foo(char * destination, const char * source)
 {
-	while (*source)
+	int len = strlen(source);
+	for (int i = 0; i < len; ++i)
 	{
-		if (isdigit(*source))
+		if (isdigit(source[i]))
 		{
-			(*destination++) = *source;
+			*destination = source[i];
+			++destination;
 		}
-		source++;
 	}
 	*destination = 0;
 }
