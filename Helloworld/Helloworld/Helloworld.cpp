@@ -1,35 +1,33 @@
 //https://progcont.hu/progcont/
 #include "pch.h"
 #include <iostream>
-
-void foo(char * destination, const char * source);
+void isPoker(const char * source);
 
 int main()
 {
-	char source[100], destination[100];
+	isPoker("HT HJ HQ HK HA");
+	isPoker("C4 C5 C6 C7 C8");
+	isPoker("SK HK CK DK S3");
+	isPoker("HT ST DT SA CA");
+	isPoker("C8 S8 S7 D8 H8");
+	isPoker("HJ DJ SJ D4 CJ");
 
-	while (fgets(source, 100, stdin) != NULL)
-	{
-		if (source[strlen(source) - 1] == '\n')
-			source[strlen(source) - 1] = '\0';
-		foo(destination, source);
-		printf("%s\n", destination);
-		if (source[0] == 'x') break;
-	}
+	//char source[100], destination[100];
+
+	//while (fgets(source, 100, stdin) != NULL)
+	//{
+	//	if (source[strlen(source) - 1] == '\n')
+	//		source[strlen(source) - 1] = '\0';
+	//	foo(destination, source);
+	//	printf("%s\n", destination);
+	//	if (source[0] == 'x') break;
+	//}
 
 	return EXIT_SUCCESS;
 }
 
-void foo(char * destination, const char * source)
+void isPoker(const char * source)
 {
-	int len = strlen(source);
-	for (int i = 0; i < len; ++i)
-	{
-		if (isdigit(source[i]))
-		{
-			*destination = source[i];
-			++destination;
-		}
-	}
-	*destination = 0;
+
+
 }
