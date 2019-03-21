@@ -29,5 +29,10 @@ int main()
 
 void isPoker(const char * source)
 {
+	for (int i = 0; i < 5; ++i)
+	{
+		printf("%c ", source[i * 3 + 1]);
+	}
+	printf("\n");
 
 }

@@ -5,9 +5,9 @@ void isPoker(const char * source);
 
 int main()
 {
+	isPoker("SK HK CK DK S3");	
 	isPoker("HT HJ HQ HK HA");
 	isPoker("C4 C5 C6 C7 C8");
-	isPoker("SK HK CK DK S3");
 	isPoker("HT ST DT SA CA");
 	isPoker("C8 S8 S7 D8 H8");
 	isPoker("HJ DJ SJ D4 CJ");
@@ -28,6 +28,45 @@ int main()
 
 void isPoker(const char * source)
 {
+	printf("%s\n", source);
+	char lapok[][2] = { {0,0}, {0,0} ,{0,0}, {0,0} ,{0,0} ,{0,0} }; //Lap t�pus - mennyis�g k�tdimenzi�s t�mb
+	
+	for (int i = 0; i < 5; ++i)
+	{
+		char lap = source[i * 3 + 1];
+		printf("lap:%c -> ", lap);
 
+		for (int j = 0; j < 5; ++j)
+		{
+			if (lapok[j][0] != lap && lapok[j][0] == 0) {
+				lapok[j][0] = lap;
+				lapok[j][1] = 1;
+				printf("%c:%d ", lapok[j][0], lapok[j][1]);
+				break;
+			}
+			if (lapok[j][0] == lap)
+			{
+				lapok[j][1]++;
+				printf("%c:%d ", lapok[j][0], lapok[j][1]);
+				break;
+			}
 
+			printf("%c:%d ", lapok[j][0], lapok[j][1]);
+		}
+
+		printf("\n");
+	}
+
+	bool poker = false;
+	for (int i = 0; i < 5; ++i)
+	{
+		if (lapok[i][1] == 4) poker = true;
+	}
+
+	if (poker)
+		printf("poker\n");
+	else
+		printf("nem poker\n");
+
+	printf("\n");
 }
