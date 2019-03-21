@@ -5,22 +5,31 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Helloworld", "Helloworld\Helloworld.vcxproj", "{67005DF9-7154-4F8C-A2EE-8D73546C903E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MakefileHello", "MakefileHello\MakefileHello.vcxproj", "{A1A1BC08-B0A4-4057-8ECD-387E1AE4907C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
+		mingw|x64 = mingw|x64
+		mingw|x86 = mingw|x86
+		msvc|x64 = msvc|x64
+		msvc|x86 = msvc|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.Debug|x64.ActiveCfg = Debug|x64
-		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.Debug|x64.Build.0 = Debug|x64
-		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.Debug|x86.ActiveCfg = Debug|Win32
-		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.Debug|x86.Build.0 = Debug|Win32
-		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.Release|x64.ActiveCfg = Release|x64
-		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.Release|x64.Build.0 = Release|x64
-		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.Release|x86.ActiveCfg = Release|Win32
-		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.Release|x86.Build.0 = Release|Win32
+		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.mingw|x64.ActiveCfg = mingw|x64
+		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.mingw|x64.Build.0 = mingw|x64
+		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.mingw|x86.ActiveCfg = mingw|Win32
+		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.msvc|x64.ActiveCfg = msvc|x64
+		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.msvc|x64.Build.0 = msvc|x64
+		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.msvc|x86.ActiveCfg = msvc|Win32
+		{67005DF9-7154-4F8C-A2EE-8D73546C903E}.msvc|x86.Build.0 = msvc|Win32
+		{A1A1BC08-B0A4-4057-8ECD-387E1AE4907C}.mingw|x64.ActiveCfg = mingw|x64
+		{A1A1BC08-B0A4-4057-8ECD-387E1AE4907C}.mingw|x64.Build.0 = mingw|x64
+		{A1A1BC08-B0A4-4057-8ECD-387E1AE4907C}.mingw|x86.ActiveCfg = mingw|Win32
+		{A1A1BC08-B0A4-4057-8ECD-387E1AE4907C}.mingw|x86.Build.0 = mingw|Win32
+		{A1A1BC08-B0A4-4057-8ECD-387E1AE4907C}.msvc|x64.ActiveCfg = mingw|x64
+		{A1A1BC08-B0A4-4057-8ECD-387E1AE4907C}.msvc|x64.Build.0 = mingw|x64
+		{A1A1BC08-B0A4-4057-8ECD-387E1AE4907C}.msvc|x86.ActiveCfg = msvc|Win32
+		{A1A1BC08-B0A4-4057-8ECD-387E1AE4907C}.msvc|x86.Build.0 = msvc|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,6 @@
 //https://progcont.hu/progcont/
-#include "pch.h"
-#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
 void foo(char * destination, const char * source);
 

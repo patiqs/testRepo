@@ -1,13 +1,11 @@
-//https://progcont.hu/progcont/
 #include "pch.h"
 #include <iostream>
 
-void foo(char * destination, const char * source);
+void foo(char *, const char *);
 
 int main()
 {
 	char source[100], destination[100];
-
 	while (fgets(source, 100, stdin) != NULL)
 	{
 		if (source[strlen(source) - 1] == '\n')
@@ -15,19 +13,21 @@ int main()
 		foo(destination, source);
 		printf("%s\n", destination);
 	}
-
 	return EXIT_SUCCESS;
 }
 
 void foo(char * destination, const char * source)
 {
-	while (*source)
+	const char *p = NULL;
+	p = source;
+
+	while (*p)
 	{
-		if (isdigit(*source))
+		if (isdigit(*p) || ((*p == '-' || *p == '+') && isdigit(*(p + 1))))
 		{
-			(*destination++) = *source;
+			destination = *strcat(p, &p);
 		}
-		source++;
+		else
+			p++;
 	}
-	*destination = 0;
 }
