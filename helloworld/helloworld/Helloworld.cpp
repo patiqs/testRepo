@@ -13,6 +13,7 @@ int main()
 	_ASSERT_EXPR(lkkt(1, 1) == 1, L"1 1");
 	_ASSERT_EXPR(lkkt(3, 7) == 21, L"3 7");
 	_ASSERT_EXPR(lkkt(-5, -15) == -15, L"-5 -15");
+	_ASSERT_EXPR(lkkt(5, 2) == 10, L"5 2");
 
 
 	return EXIT_SUCCESS;

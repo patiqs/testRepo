@@ -23,11 +23,12 @@ void foo(char * destination, const char * source)
 
 	while (*p)
 	{
-		if (isdigit(*p) || ((*p == '-' || *p == '+') && isdigit(*(p + 1))))
+		if (isdigit(*p))
 		{
-			destination = *strcat(p, &p);
+			*destination++ = *p;
 		}
-		else
-			p++;
+		p++;
+			
 	}
+	*destination = 0;
 }
