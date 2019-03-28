@@ -2,49 +2,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void kulonbozoSzamok(char* source);
 
-int main()
+int main(int argc, char** argv)
 {
-	//kulonbozoSzamok("1 3");
-	//kulonbozoSzamok("3 4 9 6");
-	//kulonbozoSzamok("3 14 9 14");
-	//kulonbozoSzamok("3 7 3 3");
-	//kulonbozoSzamok("3 81 81 2");
-	//kulonbozoSzamok("3 57 57 57");
-	//return (EXIT_SUCCESS);
-
-	int x, szam, i, j, kulonbozo = 0, van = 0;
-	while (scanf_s("%d", &x) != EOF)
+	int szam, i, j, k;
+	while (1)
 	{
-		int tomb[100];
-		for (i = 0; i < x; i++)
+		scanf_s("%d", &szam);
+		if (szam == 0)
 		{
-			scanf_s("%d", &szam);
-			tomb[i] = szam;
+			break;
 		}
 
-		for (i = 1; i < x; i++)
+		for (i = 0; i < szam; i++)
 		{
-			szam = tomb[i];
-			for (j = 0; j < i; j++)
+			for (j = 0; j < szam; ++j)
 			{
-				if (tomb[i] == tomb[j])
-					van = 1;
+				if (j >= i) {
+					putchar('*');
+				}
+				else {
+					putchar(' ');
+				}
 			}
-			if (van == 0)
-				kulonbozo++;
-		}
 
-		printf("%d\n", kulonbozo);
-		kulonbozo = 0;
+			putchar('\n');
+		}
 	}
 	return (EXIT_SUCCESS);
-}
-
-void kulonbozoSzamok(char* source) {
-	char destination[100];
-	sscanf(source, "%s", &destination);
-
-	printf(destination);
 }
