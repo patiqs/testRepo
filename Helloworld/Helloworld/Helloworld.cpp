@@ -1,24 +1,27 @@
 //https://progcont.hu/progcont/
 #include "pch.h"
 #include <iostream>
-void kulonbozoSzamok(const char* source);
+
+void foo(char *, const char *);
 
 int main()
 {
-	kulonbozoSzamok("1 3");
-	kulonbozoSzamok("3 4 9 6");
-	kulonbozoSzamok("3 14 9 14");
-	kulonbozoSzamok("3 7 3 3");
-	kulonbozoSzamok("3 81 81 2");
-	kulonbozoSzamok("4 34 57 57 57");
+	char d[100];// , *s[] = { "alma Debrecen korte", "alma korte" };
+	foo(d, "alma Debrecen korte");
+	printf("*%s*\n", d);
+	foo(d, "alma korte");
+	printf("*%s*\n", d);
+	return EXIT_SUCCESS;
 
-  return EXIT_SUCCESS;
+
+	return (EXIT_SUCCESS);
 }
 
-void kulonbozoSzamok(const char* source) {
-	char destination[100];
+void foo(char * destination, const char *source) {
+	const char *i = source;
+	while (*i != 0) {
+		printf("%s\n", i);
+		++i;
+	}
 
-	int n = sscanf(source, "%s", &destination);
-
-	printf(destination);
 }

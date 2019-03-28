@@ -2,32 +2,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void foo(char *, const char *);
 
-int main(int argc, char** argv)
+int main()
 {
-	int szam, i, j, k;
-	while (1)
-	{
-		scanf_s("%d", &szam);
-		if (szam == 0)
-		{
-			break;
-		}
+	char d[100];// , *s[] = { "alma Debrecen korte", "alma korte" };
+	foo(d, "alma Debrecen korte");
+	printf("*%s*\n", d);
+	foo(d, "alma korte");
+	printf("*%s*\n", d);
+	return EXIT_SUCCESS;
 
-		for (i = 0; i < szam; i++)
-		{
-			for (j = 0; j < szam; ++j)
-			{
-				if (j >= i) {
-					putchar('*');
-				}
-				else {
-					putchar(' ');
-				}
-			}
 
-			putchar('\n');
-		}
-	}
 	return (EXIT_SUCCESS);
+}
+
+void foo(char destination, const char *source){
+	char *i = source;
+	while (*i != 0) {
+		printf("%s\n", *i);
+		++i;
+	}
+
 }
