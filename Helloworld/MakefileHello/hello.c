@@ -18,27 +18,15 @@ int main()
 	while (scanf_s("%d", &x) != EOF)
 	{
 		int tomb[100];
-		//scanf_s("%d", &szam);
-		//tomb[0] = szam;
-
 		for (i = 0; i < x; i++)
 		{
-			van = 0;
 			scanf_s("%d", &szam);
-			//for (j = 0; j < i; j++)
-			//{
-			//	if (tomb[j] == szam) {
-			//		van = 1;
-			//		break;
-			//	}
-			//}
-			//if (van == 0) {
-			//	tomb[j] = szam;
-			//	kulonbozo++;
-			//}
-
-
 			tomb[i] = szam;
+		}
+
+		for (i = 1; i < x; i++)
+		{
+			szam = tomb[i];
 			for (j = 0; j < i; j++)
 			{
 				if (tomb[i] == tomb[j])
@@ -47,6 +35,7 @@ int main()
 			if (van == 0)
 				kulonbozo++;
 		}
+
 		printf("%d\n", kulonbozo);
 		kulonbozo = 0;
 	}
