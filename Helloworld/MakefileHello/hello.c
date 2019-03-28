@@ -2,37 +2,60 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void isPoker(const char * source);
+void kulonbozoSzamok(char* source);
 
 int main()
 {
-	isPoker("HT HJ HQ HK HA");
-	isPoker("C4 C5 C6 C7 C8");
-	isPoker("SK HK CK DK S3");
-	isPoker("HT ST DT SA CA");
-	isPoker("C8 S8 S7 D8 H8");
-	isPoker("HJ DJ SJ D4 CJ");
+	//kulonbozoSzamok("1 3");
+	//kulonbozoSzamok("3 4 9 6");
+	//kulonbozoSzamok("3 14 9 14");
+	//kulonbozoSzamok("3 7 3 3");
+	//kulonbozoSzamok("3 81 81 2");
+	//kulonbozoSzamok("3 57 57 57");
+	//return (EXIT_SUCCESS);
 
-	//char source[100], destination[100];
+	int x, szam, i, j, kulonbozo = 0, van = 0;
+	while (scanf_s("%d", &x) != EOF)
+	{
+		int tomb[100];
+		//scanf_s("%d", &szam);
+		//tomb[0] = szam;
 
-	//while (fgets(source, 100, stdin) != NULL)
-	//{
-	//	if (source[strlen(source) - 1] == '\n')
-	//		source[strlen(source) - 1] = '\0';
-	//	foo(destination, source);
-	//	printf("%s\n", destination);
-	//	if (source[0] == 'x') break;
-	//}
+		for (i = 0; i < x; i++)
+		{
+			van = 0;
+			scanf_s("%d", &szam);
+			//for (j = 0; j < i; j++)
+			//{
+			//	if (tomb[j] == szam) {
+			//		van = 1;
+			//		break;
+			//	}
+			//}
+			//if (van == 0) {
+			//	tomb[j] = szam;
+			//	kulonbozo++;
+			//}
 
-	return EXIT_SUCCESS;
+
+			tomb[i] = szam;
+			for (j = 0; j < i; j++)
+			{
+				if (tomb[i] == tomb[j])
+					van = 1;
+			}
+			if (van == 0)
+				kulonbozo++;
+		}
+		printf("%d\n", kulonbozo);
+		kulonbozo = 0;
+	}
+	return (EXIT_SUCCESS);
 }
 
-void isPoker(const char * source)
-{
-	for (int i = 0; i < 5; ++i)
-	{
-		printf("%c ", source[i * 3 + 1]);
-	}
-	printf("\n");
+void kulonbozoSzamok(char* source) {
+	char destination[100];
+	sscanf(source, "%s", &destination);
 
+	printf(destination);
 }
